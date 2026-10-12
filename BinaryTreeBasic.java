@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class BinaryTreeBasic {
     class Node {
         int data;
@@ -57,7 +59,24 @@ public class BinaryTreeBasic {
         }
     }
 
+    boolean search(Node root, int key) {
+        if (root == null) {
+            return false;
+        }
+        // check if root equals to key
+        else if (root.data == key) {
+            return true;
+        } else {
+            // check left and right subtree
+            if (search(root.left, key) || search(root.right, key)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         BinaryTreeBasic tree = new BinaryTreeBasic(); // because static main method cannot call non-static Node
         Node root = tree.new Node(1);
         root.left = tree.new Node(2);
@@ -78,5 +97,14 @@ public class BinaryTreeBasic {
 
         System.out.println("Height of tree: " + tree.height(root));
 
+        System.out.print("Enter number to be searched: ");
+        int key = sc.nextInt();
+        if (tree.search(root, key)) {
+            System.out.println("Found");
+        } else {
+            System.out.println("Not found");
+        }
+
+        sc.close();
     }
 }
