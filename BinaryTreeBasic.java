@@ -35,7 +35,16 @@ public class BinaryTreeBasic {
         }
         printPostorder(root.left); // traverse the entire left subtree
         printPostorder(root.right); // traverse the entire right subtree
-        System.out.print(root.data + " "); // print rhe root
+        System.out.print(root.data + " "); // print the root
+    }
+
+    int countNode(Node root) {
+        if (root == null) {
+            return 0;
+        } else {
+            return 1 + countNode(root.left) + countNode(root.right); // recursively count nodes
+
+        }
     }
 
     public static void main(String[] args) {
@@ -54,6 +63,8 @@ public class BinaryTreeBasic {
 
         System.out.print("\nPostorder: ");
         tree.printPostorder(root);
+
+        System.out.println("\nNumber of nodes: " + tree.countNode(root));
 
     }
 }
