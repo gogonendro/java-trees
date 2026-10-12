@@ -47,6 +47,16 @@ public class BinaryTreeBasic {
         }
     }
 
+    int height(Node root) {
+        if (root == null) {
+            return 0;
+        } else {
+            int left = height(root.left); // height of left subtree stored recursively
+            int right = height(root.right); // height of right subtree stored recursively
+            return 1 + Math.max(left, right); // return the largest between the two + 1
+        }
+    }
+
     public static void main(String[] args) {
         BinaryTreeBasic tree = new BinaryTreeBasic(); // because static main method cannot call non-static Node
         Node root = tree.new Node(1);
@@ -65,6 +75,8 @@ public class BinaryTreeBasic {
         tree.printPostorder(root);
 
         System.out.println("\nNumber of nodes: " + tree.countNode(root));
+
+        System.out.println("Height of tree: " + tree.height(root));
 
     }
 }
