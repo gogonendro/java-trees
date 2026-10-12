@@ -67,12 +67,22 @@ public class BinaryTreeBasic {
         else if (root.data == key) {
             return true;
         } else {
-            // check left and right subtree
+            // check left and right subtrees
             if (search(root.left, key) || search(root.right, key)) {
                 return true;
             }
         }
         return false;
+    }
+
+    int countLeaves(Node root) {
+        if (root == null) {
+            return 0;
+        } else if (root.left == null && root.right == null) {
+            return 1;
+        } else {
+            return countLeaves(root.left) + countLeaves(root.right);
+        }
     }
 
     public static void main(String[] args) {
@@ -104,6 +114,8 @@ public class BinaryTreeBasic {
         } else {
             System.out.println("Not found");
         }
+
+        System.out.println("Number of leaves: " + tree.countLeaves(root));
 
         sc.close();
     }
