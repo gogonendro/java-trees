@@ -54,8 +54,10 @@ public class TreeTraversals {
         // calling traversing methods
         System.out.print("Inorder: ");
         tree.printInorder(root);
+
         System.out.print("\nPreorder: ");
         tree.printPreorder(root);
+
         System.out.print("\nPostorder: ");
         tree.printPostorder(root);
     }
