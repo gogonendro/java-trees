@@ -13,6 +13,7 @@ public class BinaryTreeBasic {
         }
     }
 
+    // PRINT INORDER --> LEFT-ROOT-RIGHT
     void printInorder(Node root) {
         if (root == null) {
             return;
@@ -22,6 +23,7 @@ public class BinaryTreeBasic {
         printInorder(root.right); // go right exactly one step (and repeat)
     }
 
+    // PRINT PREORDER --> ROOT-LEFT-RIGHT
     void printPreorder(Node root) {
         if (root == null) {
             return;
@@ -31,6 +33,7 @@ public class BinaryTreeBasic {
         printPreorder(root.right); // go right exactly one step (repeat)
     }
 
+    // PRINT POSTORDER --> LEFT-RIGHT-ROOT
     void printPostorder(Node root) {
         if (root == null) {
             return;
@@ -40,6 +43,7 @@ public class BinaryTreeBasic {
         System.out.print(root.data + " "); // print the root
     }
 
+    // COUNTING NODES
     int countNode(Node root) {
         if (root == null) {
             return 0;
@@ -49,6 +53,7 @@ public class BinaryTreeBasic {
         }
     }
 
+    // CALCUCATING HEIGHT OF BINARY TREE
     int height(Node root) {
         if (root == null) {
             return 0;
@@ -59,6 +64,7 @@ public class BinaryTreeBasic {
         }
     }
 
+    // SEARCH FOR A KEY IN TREE
     boolean search(Node root, int key) {
         if (root == null) {
             return false;
@@ -75,6 +81,7 @@ public class BinaryTreeBasic {
         return false;
     }
 
+    // COUNT LEAVES
     int countLeaves(Node root) {
         if (root == null) {
             return 0;
@@ -85,6 +92,7 @@ public class BinaryTreeBasic {
         }
     }
 
+    // COUNT INTERNAL NODES
     int internalNodesCount(Node root) {
         if (root == null) {
             return 0;
