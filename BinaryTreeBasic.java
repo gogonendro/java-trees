@@ -20,6 +20,15 @@ public class BinaryTreeBasic {
         printInorder(root.right); // go right exactly one step (and repeat)
     }
 
+    void printPreorder(Node root) {
+        if (root == null) {
+            return;
+        }
+        System.out.print(root.data + " "); // print the root first
+        printPreorder(root.left); // traverse the entire left subtree
+        printPreorder(root.right); // go right exactly one step (repeat)
+    }
+
     public static void main(String[] args) {
         BinaryTreeBasic tree = new BinaryTreeBasic(); // because static main method cannot call non-static Node
         Node root = tree.new Node(1);
@@ -30,6 +39,9 @@ public class BinaryTreeBasic {
 
         System.out.print("Inorder: ");
         tree.printInorder(root);
+
+        System.out.print("\nPreorder: ");
+        tree.printPreorder(root);
 
     }
 }
