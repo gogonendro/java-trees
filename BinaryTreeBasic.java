@@ -85,6 +85,18 @@ public class BinaryTreeBasic {
         }
     }
 
+    int internalNodesCount(Node root) {
+        if (root == null) {
+            return 0;
+        }
+        // if both children are null (hence, leaf), then return 0
+        else if (root.left == null && root.right == null) {
+            return 0;
+        } else {
+            return 1 + internalNodesCount(root.left) + internalNodesCount(root.right);
+        }
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         BinaryTreeBasic tree = new BinaryTreeBasic(); // because static main method cannot call non-static Node
@@ -116,6 +128,8 @@ public class BinaryTreeBasic {
         }
 
         System.out.println("Number of leaves: " + tree.countLeaves(root));
+
+        System.out.println("Number of internal nodes: " + tree.internalNodesCount(root));
 
         sc.close();
     }
